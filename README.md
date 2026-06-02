@@ -37,3 +37,19 @@ Files are zero-padded to match the digit width of `--count` (e.g. `--count 25` p
 # 5 files with a custom prefix and random content
 ./create-test-files.sh --count 5 --size 512k --prefix my-file- --content random --output-dir /tmp/testdata
 ```
+
+---
+
+### [bash/hash8c.sh](bash/hash8c.sh)
+Computes a short 8-character hex hash of a string by taking the SHA-256 digest and keeping the first 8 characters. Useful for generating deterministic short identifiers from arbitrary input.
+
+**Dependencies:** `sha256sum` (available on Linux; on macOS install via `brew install coreutils`)
+
+```
+./hash8c.sh <string>
+```
+
+```
+$ ./hash8c.sh "hello world"
+b94d27b9
+```
